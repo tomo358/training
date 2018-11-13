@@ -49,7 +49,11 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: training_production
-  username: training
-  password: <%= ENV['TRAINING_DATABASE_PASSWORD'] %>
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  host: us-cdbr-iron-east-01.cleardb.net
+  port: 3306
+  database: heroku_38d4df6ee9d9ec1
+  username: bb313a27dae290
+  password: d83eec7a
