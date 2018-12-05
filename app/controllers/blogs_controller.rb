@@ -28,6 +28,7 @@ class BlogsController < ApplicationController
 
     respond_to do |format|
       if @blog.save
+        NoticeMailer.sendmail_blog(@blog).deliver
         format.html { redirect_to @blog, notice: 'Blog was successfully created.' }
         format.json { render :show, status: :created, location: @blog }
       else
