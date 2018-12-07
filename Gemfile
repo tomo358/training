@@ -51,6 +51,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'letter_opener_web'
+  gem 'bullet' # it_training day17
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -61,3 +62,4 @@ gem 'rails_12factor', group: :production
 gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'kaminari'  # it_training day17
