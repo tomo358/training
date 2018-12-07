@@ -5,7 +5,8 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.all
+    @blogs = Blog.select(:id, :title, :content, :created_at, :updated_at, :image, :user_id).includes(:user)
+    binding.pry
   end
 
   # GET /blogs/1
@@ -23,7 +24,8 @@ class BlogsController < ApplicationController
   end
 
   def confirm
-    @blog = Blog.new(blog_params)
+    @blog = current_user.blogs.build(blog_params)
+    render:new if @blog.invalid?
   end
 
   # GET /blogs/1/edit
@@ -33,8 +35,7 @@ class BlogsController < ApplicationController
   # POST /blogs
   # POST /blogs.json
   def create
-    @blog = Blog.new(blog_params)
-
+    @blog = current_user.blogs.build(blog_params)
     respond_to do |format|
       if @blog.save
         NoticeMailer.sendmail_blog(@blog).deliver
