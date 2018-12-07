@@ -9,8 +9,10 @@
 </p>
 
 <p>
-  <strong>Image:</strong>
-  <%= image_tag @blog.image.url %>
+  <% if @blog.image.present? %>
+    <strong>Image:</strong>
+    <%= image_tag @blog.image.url %>
+   <% end %>
 </p>
 
 <%= link_to 'Edit', edit_blog_path(@blog) %> |
