@@ -21,6 +21,12 @@
     <%= f.text_area :content %>
   </div>
 
+  <div class="field">
+    <%= f.label :image %>
+    <%= image_tag(@blog.image.url) if @blog.image.url %>
+    <%= f.file_field :image %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
