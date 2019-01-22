@@ -63,3 +63,4 @@ gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'kaminari'  # it_training day17
+gem 'twitter'
