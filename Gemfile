@@ -62,4 +62,6 @@ gem 'rails_12factor', group: :production
 gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'kaminari'  # it_training day17
+gem 'kaminari'  
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
