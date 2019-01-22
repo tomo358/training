@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,:omniauthable, omniauth_providers: %i(google)
+         :recoverable, :rememberable, :trackable, :validatable,:omniauthable, omniauth_providers: %i(google facebook)
 
   def follow!(other_user)
     active_relationships.create!(followed_id: other_user.id)
@@ -39,6 +39,20 @@ class User < ApplicationRecord
     user.save
     user
   end
+
+  def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
+   user = User.find_by(provider: auth.provider, uid: auth.uid)
+
+   unless user
+     user = User.new(provider: auth.provider,
+                     uid:      auth.uid,
+                     email:    "#{auth.uid}-#{auth.provider}@example.com",
+                     password: Devise.friendly_token[0, 20]
+     )
+   end
+   user.save
+   user
+ end
 
   mount_uploader :image, ImageUploader
 end
