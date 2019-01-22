@@ -4,13 +4,3 @@
   <%= user.email %>
   <%= render 'follow_form', user: user %>
 <% end %>
-
-<div class="content">
-  <h1>INDEX</h1>
-  <div class="user">
-    <h2>User Name</h2>
-    <%= form_for(@user, url:{ action: 'user' }) do |f| %>
-      <%= f.submit 'ユーザーをチェックする' %>
-    <% end %>
-  </div>
-</div>
