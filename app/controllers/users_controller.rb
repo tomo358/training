@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   def index
-    @user = User.new
     @users = User.all
   end
+
 
   def user
    require 'twitter'
@@ -17,4 +17,5 @@ class UsersController < ApplicationController
    @user = User.new(name: client.user.name)
 
  end
+
 end
