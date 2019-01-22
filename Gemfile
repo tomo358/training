@@ -7,9 +7,9 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '5.1.1'
+gem 'rails', '5.1.3'
 # Use mysql as the database for Active Record
-gem 'mysql2', '>= 0.3.18', '< 0.5.0'
+gem 'mysql2', '~> 0.4.4'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -52,6 +52,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'letter_opener_web'
   gem 'bullet' # it_training day17
+  gem 'dotenv-rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -62,4 +63,6 @@ gem 'rails_12factor', group: :production
 gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'kaminari'  # it_training day17
+gem 'kaminari'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
