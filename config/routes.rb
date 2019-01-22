@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   get '/user', to: 'users#user'
   post '/user', to: 'users#user'
 
+  get 'select_user', to: 'users#select_user'
+  post 'select_user', to: 'users#select_user'
+
   resources :relationships, only: [:create, :destroy]
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?

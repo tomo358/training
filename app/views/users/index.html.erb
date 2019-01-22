@@ -8,10 +8,14 @@
 <div class="content">
   <h1>INDEX</h1>
   <div class="user">
-    <h2>User Name</h2>
+    <h2>User</h2>
     <%= form_for(@user, url:{ action: 'user' }) do |f| %>
-      <%= f.submit 'ユーザーをチェックする' %>
+      <%= f.submit 'ユーザーをチェック' %>
+    <% end %>
+
+    <%= form_for(@select_user, url:{ action: 'select_user' }) do |f| %>
+      <%= f.text_field :name %>
+      <%= f.submit '名前を指定してチェック' %>
     <% end %>
   </div>
 </div>
-
