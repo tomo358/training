@@ -13,7 +13,7 @@ class UsersController < ApplicationController
      config.access_token = Rails.application.secrets.user_access_token
      config.access_token_secret = Rails.application.secrets.user_access_token_secret
    end
-
+   binding.pry
    @user = User.new(name: client.user.name)
 
  end
