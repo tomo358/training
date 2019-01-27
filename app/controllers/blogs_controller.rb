@@ -3,7 +3,9 @@ class BlogsController < ApplicationController
   before_action :authenticate_user!, only:[:new, :edit, :destroy]
 
   def index
-    @blogs = Blog.index_all.page(params[:page])
+    # @blogs = Blog.index_all.page(params[:page])
+    @q = Blog.ransack(params[:q])
+    @blogs = @q.result
   end
 
   def show
